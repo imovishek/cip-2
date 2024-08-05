@@ -36,6 +36,9 @@ def add_timestamp_to_url(url: Text, start: float) -> Text:
             return re.sub(r"iCurrentPosition=\d+", f"iCurrentPosition={start}", url)
         return add_query_to_url(url, f"iCurrentPosition={start}")
 
+    if "tvctv.org" in url:
+        return add_query_to_url(url, f"seekto={start}")
+
     return url
 
 
